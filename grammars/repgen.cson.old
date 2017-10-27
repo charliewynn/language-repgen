@@ -1,0 +1,107 @@
+name: "Repgen"
+fileTypes: [
+	"RB"
+	"rd"
+	"RD"
+	"PRO"
+	"DEF"
+	"SET"
+]
+foldingStartMarker: "((Define|Setup|Select|Sort|Print|Procedure|Total)\\s*(//.*)?$)"
+foldingStopMarker: "^\\s*End"
+patterns: [
+	{
+		match: "\\[((NOTE:|Note:)([$-/:-?{-~!\"^_`\\.\\s\\w]*))\\]"
+		name: "comment.line.symitar"
+		captures:
+			"1":
+				name: "comment.line.note.symitar"
+	}
+	{
+		match: "\\[((?<=\\[)(!)([$-/:-?{-~!\"^_`\\.\\s\\w]*))\\]"
+		name: "comment.line.symitar"
+		captures:
+			"1":
+				name: "comment.line.important.symitar"
+	}
+	{
+		match: "\\[((ToDo:|Todo:|TODO:)([$-/:-?{-~!\"^_`\\.\\s\\w]*))\\]"
+		name: "comment.line.symitar"
+		captures:
+			"1":
+				name: "comment.line.todo.symitar"
+	}
+	{
+		match: "\\[(.*)\\]"
+		name: "comment.block.symitar"
+	}
+	{
+		match: "<<=|%=|&=|\\*=|\\*\\*=|\\+=|\\-=|\\^=|\\|{1,2}=|<<"
+		name: "keyword.operator.assignment.augmented.symitar"
+	}
+	{
+		match: "<=>|<(?!<|=)|>(?!<|=|>)|<=|>=|===|==|=~|!=|!~|(?<=[ \\t])\\?"
+		name: "keyword.operator.comparison.symitar"
+	}
+	{
+		match: "(?<=[ \\t])!+|\\bNot\\b|&&|\\bAnd\\b|\\|\\||\\bOr\\b|\\^"
+		name: "keyword.operator.logical.symitar"
+	}
+	{
+		match: "(%|&|\\*\\*|\\*|\\+|\\-|/)"
+		name: "keyword.operator.arithmetic.symitar"
+	}
+	{
+		match: "="
+		name: "keyword.operator.assignment.symitar"
+	}
+	{
+		match: "\\||~|>>"
+		name: "keyword.operator.other.symitar"
+	}
+	{
+		match: "([a-zA-Z]+|[0-9]+)(?=:)"
+		name: "keyword.controller.symitar"
+	}
+	{
+		match: "(?<=:)([a-zA-Z]+|[0-9]+)"
+		name: "constant.other.symitar"
+	}
+	{
+		match: "([a-zA-Z]+|[0-9]+)(?=\\(.*\\))"
+		name: "entity.name.function.symitar"
+	}
+	{
+		match: "(?<!\\.)\\b(Target|Define|Setup|Select|Sort|Print|Total|Procedure|Call|Suppress|Windows|Subroutine|Demand|If|Then|Do|End|Else|For|While|To|Set|FMPerform)\\b(?![?!])"
+		name: "keyword.control.symitar"
+	}
+	{
+		match: "\\b(?i)(Character|Date|Number|Code|Money|Rate)\\b"
+		name: "support.type.symitar"
+	}
+	{
+		captures:
+			"1":
+				name: "meta.preprocessor.symitar"
+		match: "#(INCLUDE)\\b(?:\\s*([^ ;$]+))/i"
+		name: "meta.include.symitar"
+	}
+	{
+		begin: "\""
+		beginCaptures: [
+			{
+				name: "punctuation.definition.string.begin.symitar"
+			}
+		]
+		comment: "double quoted string"
+		end: "\""
+		endCaptures: [
+			{
+				name: "punctuation.definition.string.end.symitar"
+			}
+		]
+		name: "string.quoted.double.symitar"
+	}
+]
+scopeName: "source.symitar"
+uuid: "959814ed-12b5-4e71-b684-82ee6774039d"

@@ -1,0 +1,52 @@
+@import "syntax-variables";
+
+.syntax--repgen.syntax--comment.syntax--block{
+  //background-color: @syntax-comment;
+}
+.syntax--repgen.syntax--comment.syntax--block.syntax--content{
+  color: green;
+}
+.syntax--includecommand{
+  color: orange;
+}
+.syntax--include.syntax--file{
+  color: blue;
+}
+
+.syntax--division{
+  //background-color: white
+}
+.syntax--division .syntax--start,.syntax--end {
+  color: orange;
+}
+
+.syntax--target {
+  color: purple;
+}
+.syntax--call
+{
+  .syntax--call{
+    color: red;
+  }
+  .syntax--procedure {
+    color: lightblue;
+  }
+}
+
+.syntax--target{
+  .syntax--targetequals {
+    color: purple;
+  }
+  .syntax--targettarget {
+      color: yellow;
+  }
+}
+
+.syntax--assignment {
+  .syntax--var{
+    color: red;
+  }
+  .syntax--envparamchar {
+    color: pink;
+  }
+}

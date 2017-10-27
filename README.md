@@ -1,2 +1,1 @@
-# language-repgen
-poweron syntax for atom.io
+idk, ask charlie

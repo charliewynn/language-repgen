@@ -1,0 +1,11 @@
+{
+  "name": "language-repgen",
+  "version": "0.0.1",
+  "description": "Repgen Support for Atom",
+  "repository": "",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {}
+}
