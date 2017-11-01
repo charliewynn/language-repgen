@@ -1,8 +1,8 @@
 {
   "name": "language-repgen",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Repgen Support for Atom",
-  "repository": "",
+  "repository": "https://github.com/charliewynn/language-repgen",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"

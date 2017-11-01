@@ -10,11 +10,11 @@
     match: '(TARGET)[ ]*(=)[ ]*(ACCOUNT|LOAN)'
     captures:
       1:
-        name: 'target'
+        name: 'command'
       2:
-        name: 'targetequals'
+        name: 'equals'
       3:
-        name: 'targettarget'
+        name: 'target'
   }
   {
     name: 'division'
@@ -29,6 +29,33 @@
       0:
         name: 'end'
     patterns: [
+      {
+        name: 'token'
+        match: '(@ENVPARAMCHAR2)|(\".*\")'
+        captures:
+          1:
+            name: 'envparam'
+          2:
+            name: 'string'
+      }
+      {
+        name : 'assignment.string'
+        match : '([a-zA-Z]*)[ \t]+=[ \t]+(\"[a-zA-Z\.]*\")'
+        captures:
+          1:
+            name: 'variable'
+          2:
+            name: 'value'
+      }
+      {
+        name : 'assignment.envparamchar'
+        match : '([a-zA-Z]*)[ \t]+=[ \t]+(@ENVPARAMCHAR[1-8])'
+        captures:
+          1:
+            name: 'variable'
+          2:
+            name: 'value'
+      }
       {
         match : '(\\#INCLUDE)[ ]+(\\"[^\\"]*\\")'
         captures:
@@ -51,19 +78,7 @@
           2:
             name: 'procedure'
       }
-      {
-        name: 'assignment'
-        match: '[ \t]*([A-Z]*)[ ]*(=)(?[\\s]*)(@ENVPARAMCHAR[^ ]*)'
-        captures:
-          1:
-            name: 'var'
-          2:
-            name: 'equals'
-          3:
-            name: 'value.envparamchar'
-      }
     ]
-
   }
   {
       match : '(\\#INCLUDE)[ ]+(\\"[^\\"]*\\")'

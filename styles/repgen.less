@@ -10,7 +10,7 @@
   color: orange;
 }
 .syntax--include.syntax--file{
-  color: blue;
+  color: lightblue;
 }
 
 .syntax--division{
@@ -33,20 +33,33 @@
   }
 }
 
+.syntax--token {
+  .syntax--string {
+    color: blue;
+  }
+  .syntax--envparam {
+    color: fuchsia;
+  }
+}
+.syntax--assignment {
+  &.syntax--string {
+    .syntax--value {
+      color: red;
+    }
+  }
+
+  &.syntax--envparamchar {
+    .syntax--value {
+      color: pink;
+    }
+  }
+}
+
 .syntax--target{
   .syntax--targetequals {
     color: purple;
   }
   .syntax--targettarget {
       color: yellow;
-  }
-}
-
-.syntax--assignment {
-  .syntax--var{
-    color: red;
-  }
-  .syntax--envparamchar {
-    color: pink;
   }
 }
