@@ -1,65 +1,67 @@
 @import "syntax-variables";
 
-.syntax--repgen.syntax--comment.syntax--block{
-  //background-color: @syntax-comment;
-}
-.syntax--repgen.syntax--comment.syntax--block.syntax--content{
-  color: green;
-}
-.syntax--includecommand{
-  color: orange;
-}
-.syntax--include.syntax--file{
-  color: lightblue;
-}
-
-.syntax--division{
-  //background-color: white
-}
-.syntax--division .syntax--start,.syntax--end {
-  color: orange;
-}
-
-.syntax--target {
-  color: purple;
-}
-.syntax--call
-{
-  .syntax--call{
-    color: red;
+.syntax--repgen{
+  .syntax--comment.syntax--block{
+    //background-color: @syntax-comment;
   }
-  .syntax--procedure {
+  .syntax--repgen.syntax--comment.syntax--block.syntax--content{
+    color: green;
+  }
+  .syntax--includecommand{
+    color: orange;
+  }
+  .syntax--include.syntax--file{
     color: lightblue;
   }
-}
 
-.syntax--token {
-  .syntax--string {
-    color: blue;
+  .syntax--division{
+    //background-color: white
   }
-  .syntax--envparam {
-    color: fuchsia;
-  }
-}
-.syntax--assignment {
-  &.syntax--string {
-    .syntax--value {
-      color: red;
-    }
+  .syntax--division .syntax--start,.syntax--end {
+    color: orange;
   }
 
-  &.syntax--envparamchar {
-    .syntax--value {
-      color: pink;
-    }
-  }
-}
-
-.syntax--target{
-  .syntax--targetequals {
+  .syntax--target {
     color: purple;
   }
-  .syntax--targettarget {
-      color: yellow;
+  .syntax--call
+  {
+    .syntax--call{
+      color: red;
+    }
+    .syntax--procedure {
+      color: lightblue;
+    }
+  }
+
+  .syntax--token {
+    .syntax--string {
+      color: blue;
+    }
+    .syntax--envparam {
+      color: fuchsia;
+    }
+  }
+  .syntax--assignment {
+    &.syntax--string {
+      .syntax--value {
+        color: red;
+      }
+    }
+
+    &.syntax--envparamchar {
+      .syntax--value {
+        color: pink;
+      }
+    }
+  }
+
+  .syntax--target{
+    .syntax--targetequals {
+      color: purple;
+    }
+    .syntax--targettarget {
+        color: yellow;
+    }
   }
 }
